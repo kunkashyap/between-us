@@ -1,0 +1,357 @@
+import {
+  DuoSpace,
+  Memory,
+  Place,
+  LittleThing,
+  Plan,
+  TimeCapsule,
+  Question,
+  Profile,
+} from '../types';
+
+export const DEMO_USER_CURRENT: Profile = {
+  id: '00000000-0000-0000-0000-000000000001',
+  display_name: 'Kunal',
+  avatar_url: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=200&q=80',
+  created_at: '2025-01-01T00:00:00Z',
+};
+
+export const DEMO_USER_PARTNER: Profile = {
+  id: '00000000-0000-0000-0000-000000000002',
+  display_name: 'Sam',
+  avatar_url: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80',
+  created_at: '2025-01-01T00:00:00Z',
+};
+
+export const DEMO_DUO_SPACE: DuoSpace = {
+  id: '11111111-1111-1111-1111-111111111111',
+  name: 'Kunal × Sam',
+  invite_code: 'BETWEEN2',
+  created_by: DEMO_USER_CURRENT.id,
+  created_at: '2025-01-01T00:00:00Z',
+  partner_name: 'Sam',
+};
+
+export const INITIAL_MEMORIES: Memory[] = [
+  {
+    id: 'mem-1',
+    duo_id: DEMO_DUO_SPACE.id,
+    created_by: DEMO_USER_CURRENT.id,
+    title: 'THE DAY WE GOT LOST',
+    story:
+      'We were supposed to go home. Instead we somehow ended up walking around for another three hours in the drizzling rain talking about how fast time moves and what we actually want out of life.',
+    memory_date: '2026-09-14',
+    location_name: 'Hauz Khas Village, Delhi',
+    latitude: 28.5535,
+    longitude: 77.1944,
+    created_at: '2026-09-14T18:30:00Z',
+    updated_at: '2026-09-14T18:30:00Z',
+    author_name: 'Kunal',
+    media: [
+      {
+        id: 'med-1-1',
+        memory_id: 'mem-1',
+        media_type: 'image',
+        storage_path: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=1200&q=80',
+        caption: 'The ruins right before twilight',
+        sort_order: 0,
+        created_at: '2026-09-14T18:30:00Z',
+      },
+      {
+        id: 'med-1-2',
+        memory_id: 'mem-1',
+        media_type: 'image',
+        storage_path: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80',
+        caption: 'Rain starts picking up',
+        sort_order: 1,
+        created_at: '2026-09-14T18:30:00Z',
+      },
+    ],
+  },
+  {
+    id: 'mem-2',
+    duo_id: DEMO_DUO_SPACE.id,
+    created_by: DEMO_USER_PARTNER.id,
+    title: 'THAT CONVERSATION',
+    story:
+      'Some memories don’t need much explanation. Just sitting on the balcony watching the sky turn deep indigo, listening to the ambient city sounds, realizing some bonds never fade.',
+    memory_date: '2026-08-28',
+    location_name: 'Vasant Kunj, Delhi',
+    latitude: 28.5293,
+    longitude: 77.1537,
+    created_at: '2026-08-28T21:00:00Z',
+    updated_at: '2026-08-28T21:00:00Z',
+    author_name: 'Sam',
+    song_title: 'Sparks',
+    song_artist: 'Coldplay',
+    media: [
+      {
+        id: 'med-2-1',
+        memory_id: 'mem-2',
+        media_type: 'image',
+        storage_path: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1200&q=80',
+        caption: 'Dusk over the balconies',
+        sort_order: 0,
+        created_at: '2026-08-28T21:00:00Z',
+      },
+    ],
+  },
+  {
+    id: 'mem-3',
+    duo_id: DEMO_DUO_SPACE.id,
+    created_by: DEMO_USER_CURRENT.id,
+    title: 'MOVIE NIGHT',
+    story:
+      'We spent forty-five minutes deciding what to watch, fifteen minutes actually watching the opening scene, and the remaining two hours arguing passionately about alternate timelines while burning popcorn.',
+    memory_date: '2026-08-12',
+    location_name: 'Home',
+    created_at: '2026-08-12T22:15:00Z',
+    updated_at: '2026-08-12T22:15:00Z',
+    author_name: 'Kunal',
+    media: [
+      {
+        id: 'med-3-1',
+        memory_id: 'mem-3',
+        media_type: 'image',
+        storage_path: 'https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=1200&q=80',
+        caption: 'Popcorn batch #2',
+        sort_order: 0,
+        created_at: '2026-08-12T22:15:00Z',
+      },
+      {
+        id: 'med-3-2',
+        memory_id: 'mem-3',
+        media_type: 'image',
+        storage_path: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1200&q=80',
+        caption: 'Paused menu screen',
+        sort_order: 1,
+        created_at: '2026-08-12T22:15:00Z',
+      },
+      {
+        id: 'med-3-3',
+        memory_id: 'mem-3',
+        media_type: 'image',
+        storage_path: 'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1200&q=80',
+        caption: 'Midnight snack leftovers',
+        sort_order: 2,
+        created_at: '2026-08-12T22:15:00Z',
+      },
+    ],
+  },
+  {
+    id: 'mem-otd',
+    duo_id: DEMO_DUO_SPACE.id,
+    created_by: DEMO_USER_CURRENT.id,
+    title: 'FIRST 4 AM CHAI RUN',
+    story:
+      'We had no idea this would become a memory. Freezing wind, burning hot paper cups, and laughter that woke up half the street.',
+    memory_date: '2025-09-17',
+    location_name: 'India Gate, Delhi',
+    latitude: 28.6129,
+    longitude: 77.2295,
+    created_at: '2025-09-17T04:30:00Z',
+    updated_at: '2025-09-17T04:30:00Z',
+    author_name: 'Kunal',
+    media: [
+      {
+        id: 'med-otd-1',
+        memory_id: 'mem-otd',
+        media_type: 'image',
+        storage_path: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=1200&q=80',
+        caption: 'Steam rising at dawn',
+        sort_order: 0,
+        created_at: '2025-09-17T04:30:00Z',
+      },
+    ],
+  },
+];
+
+export const INITIAL_PLACES: Place[] = [
+  {
+    id: 'place-1',
+    duo_id: DEMO_DUO_SPACE.id,
+    name: 'Hauz Khas Village',
+    latitude: 28.5535,
+    longitude: 77.1944,
+    visited_date: '2026-09-14',
+    notes: 'Where we got completely lost and walked for 3 hours.',
+    created_by: DEMO_USER_CURRENT.id,
+    created_at: '2026-09-14T18:30:00Z',
+    memories_count: 1,
+    sample_media: [
+      'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&q=80',
+    ],
+  },
+  {
+    id: 'place-2',
+    duo_id: DEMO_DUO_SPACE.id,
+    name: 'Vasant Kunj',
+    latitude: 28.5293,
+    longitude: 77.1537,
+    visited_date: '2026-08-28',
+    notes: 'Balcony conversations watching the sunset.',
+    created_by: DEMO_USER_PARTNER.id,
+    created_at: '2026-08-28T21:00:00Z',
+    memories_count: 1,
+    sample_media: [
+      'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&q=80',
+    ],
+  },
+  {
+    id: 'place-3',
+    duo_id: DEMO_DUO_SPACE.id,
+    name: 'India Gate',
+    latitude: 28.6129,
+    longitude: 77.2295,
+    visited_date: '2025-09-17',
+    notes: 'Midnight chai run and cold morning breeze.',
+    created_by: DEMO_USER_CURRENT.id,
+    created_at: '2025-09-17T04:30:00Z',
+    memories_count: 1,
+    sample_media: [
+      'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&q=80',
+    ],
+  },
+];
+
+export const INITIAL_LITTLE_THINGS: LittleThing[] = [
+  {
+    id: 'lt-1',
+    duo_id: DEMO_DUO_SPACE.id,
+    type: 'inside_joke',
+    title: 'The Hauz Khas Turn',
+    content: '“Bro what was that?”',
+    origin_date: '2026-09-14',
+    created_by: DEMO_USER_CURRENT.id,
+    created_at: '2026-09-14T19:00:00Z',
+    author_name: 'Kunal',
+  },
+  {
+    id: 'lt-2',
+    duo_id: DEMO_DUO_SPACE.id,
+    type: 'quote',
+    title: 'Punctuality',
+    content: '“We’ll leave in 10 minutes.” (They did not leave in 10 minutes.)',
+    origin_date: '2026-08-20',
+    created_by: DEMO_USER_PARTNER.id,
+    created_at: '2026-08-20T20:10:00Z',
+    author_name: 'Sam',
+  },
+  {
+    id: 'lt-3',
+    duo_id: DEMO_DUO_SPACE.id,
+    type: 'random_moment',
+    title: 'Full Capacity',
+    content: 'Ordering 4 desserts right after loudly declaring we were completely full and couldn’t take one more bite.',
+    origin_date: '2026-07-15',
+    created_by: DEMO_USER_CURRENT.id,
+    created_at: '2026-07-15T21:45:00Z',
+    author_name: 'Kunal',
+  },
+];
+
+export const INITIAL_PLANS: Plan[] = [
+  {
+    id: 'plan-1',
+    duo_id: DEMO_DUO_SPACE.id,
+    created_by: DEMO_USER_CURRENT.id,
+    title: 'Take a weekend road trip to the hills',
+    description: 'No strict schedule. Just rent a car, bring snacks, and stop anywhere.',
+    planned_date: '2026-11-15',
+    status: 'pending',
+    created_at: '2026-09-01T12:00:00Z',
+    author_name: 'Kunal',
+  },
+  {
+    id: 'plan-2',
+    duo_id: DEMO_DUO_SPACE.id,
+    created_by: DEMO_USER_PARTNER.id,
+    title: 'Watch the midnight rerun of Interstellar in IMAX',
+    description: 'Book seats weeks in advance.',
+    planned_date: '2026-10-10',
+    status: 'pending',
+    created_at: '2026-09-05T15:30:00Z',
+    author_name: 'Sam',
+  },
+  {
+    id: 'plan-3',
+    duo_id: DEMO_DUO_SPACE.id,
+    created_by: DEMO_USER_CURRENT.id,
+    title: 'Try the hidden ramen spot with 6 counter seats',
+    description: 'Get there before 7 PM to beat the line.',
+    planned_date: '2026-10-01',
+    status: 'pending',
+    created_at: '2026-09-10T18:00:00Z',
+    author_name: 'Kunal',
+  },
+  {
+    id: 'plan-4',
+    duo_id: DEMO_DUO_SPACE.id,
+    created_by: DEMO_USER_PARTNER.id,
+    title: 'Build something ridiculous together',
+    description: 'A secret project just for us.',
+    planned_date: '2026-12-01',
+    status: 'pending',
+    created_at: '2026-09-12T20:00:00Z',
+    author_name: 'Sam',
+  },
+];
+
+export const INITIAL_CAPSULES: TimeCapsule[] = [
+  {
+    id: 'cap-1',
+    duo_id: DEMO_DUO_SPACE.id,
+    created_by: DEMO_USER_CURRENT.id,
+    title: 'Open this when 2027 arrives',
+    message:
+      'Hey. If you are reading this, another year has gone by. Remember the late nights in September when we had no idea how things would turn out? You made it through. Here’s to many more unscripted chapters.',
+    unlock_at: '2027-01-01T00:00:00Z',
+    created_at: '2026-09-17T04:30:00Z',
+    is_unlocked: false,
+    author_name: 'Kunal',
+  },
+  {
+    id: 'cap-2',
+    duo_id: DEMO_DUO_SPACE.id,
+    created_by: DEMO_USER_PARTNER.id,
+    title: 'A letter from last summer',
+    message:
+      'I am sealing this right after our late night walk. Just wanted to leave a note here to say thank you for always showing up. No matter where we are in a year, this friendship is home.',
+    unlock_at: '2026-08-01T00:00:00Z',
+    created_at: '2025-08-01T00:00:00Z',
+    is_unlocked: true,
+    author_name: 'Sam',
+    media_urls: [
+      'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80',
+    ],
+  },
+];
+
+export const INITIAL_QUESTIONS: Question[] = [
+  {
+    id: 'q-1',
+    duo_id: DEMO_DUO_SPACE.id,
+    question: 'What is one memory between us you never want to forget?',
+    question_date: '2026-09-17',
+    created_at: '2026-09-17T00:00:00Z',
+    both_answered: true,
+    answers: [
+      {
+        id: 'ans-1',
+        question_id: 'q-1',
+        user_id: DEMO_USER_CURRENT.id,
+        answer: 'That random night we couldn’t stop laughing in the car while it was pouring outside.',
+        created_at: '2026-09-17T08:00:00Z',
+        author_name: 'Kunal',
+      },
+      {
+        id: 'ans-2',
+        question_id: 'q-1',
+        user_id: DEMO_USER_PARTNER.id,
+        answer: 'When we got lost in Hauz Khas and decided to just keep walking.',
+        created_at: '2026-09-17T09:30:00Z',
+        author_name: 'Sam',
+      },
+    ],
+  },
+];

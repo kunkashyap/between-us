@@ -1,0 +1,66 @@
+{
+  "expo": {
+    "name": "Between Us",
+    "slug": "between-us",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "betweenus",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/images/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0C0C0E"
+    },
+    "ios": {
+      "bundleIdentifier": "com.betweenus.app",
+      "supportsTablet": false,
+      "infoPlist": {
+        "NSCameraUsageDescription": "Between Us requires camera access to capture shared memories.",
+        "NSPhotoLibraryUsageDescription": "Between Us requires photo gallery access to preserve shared moments.",
+        "NSMicrophoneUsageDescription": "Between Us requires microphone access to record voice notes.",
+        "NSLocationWhenInUseUsageDescription": "Between Us uses your location to tag memories to places you visited together."
+      }
+    },
+    "android": {
+      "package": "com.betweenus.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#0C0C0E",
+        "foregroundImage": "./assets/images/android-icon-foreground.png"
+      },
+      "permissions": [
+        "CAMERA",
+        "READ_MEDIA_IMAGES",
+        "RECORD_AUDIO",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION"
+      ],
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#0C0C0E",
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 100
+        }
+      ],
+      [
+        "expo-audio",
+        {
+          "microphonePermission": "Allow Between Us to access your microphone for voice notes."
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}
